@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProductController {
 
     @RequestMapping("/addProduct")
-    public ModelAndView add(Product product) {
+    public ModelAndView addProduct(Product product) {
         ModelAndView mav = new ModelAndView("showProduct");
         return mav;
     }

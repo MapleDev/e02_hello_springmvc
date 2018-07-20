@@ -3,7 +3,6 @@ package com.xznn.controller;
 import com.xznn.pojo.UploadedImageFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
 
 @Controller
 public class AnnotationIndexController {
@@ -31,6 +29,7 @@ public class AnnotationIndexController {
 
     @RequestMapping("/jump2Index")
     public ModelAndView jump2Index() {
+        // 客户端跳转
         return new ModelAndView("redirect:/index");
     }
 

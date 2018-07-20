@@ -8,10 +8,27 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!--
+    这是Spring MVC的 映射配置文件
+    表示访问路径/index会交给id=indexController的bean处理
+    id=indexController的bean配置为类：IndexController
+    -->
+    <!--
+    <bean id="indexController" class="com.xznn.controller.IndexController"/>
+    <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/index">indexController</prop>
+            </props>
+        </property>
+    </bean>
+    -->
 
+    <!--注解方式 表示从 包controller 下扫描有@Controller注解的类-->
     <context:component-scan base-package="com.xznn.controller"/>
 
     <!--视图定位-->
+    <!--其作用是把视图约定在 /WEB-INF/page/*.jsp 这个位置-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="WEB-INF/page/"/>
         <property name="suffix" value=".jsp"/>
@@ -19,16 +36,6 @@
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
-
-    <bean id="simpleUrlHandlerMapping"
-          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="mappings">
-            <props>
-                <prop key="/index">indexController</prop>
-            </props>
-        </property>
-    </bean>
-    <bean id="indexController" class="com.xznn.controller.IndexController"/>
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/index"/>
